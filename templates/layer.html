@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>СЛОЙ</h1>
+    <a href="/" id="back">НАЗАД</a>
+
+    <div class="status_page"
+    style="display: flex;
+    flex-direction: column;
+    align-items: center;">
+        <div class="selectors">
+            <label style="width: 150px">робот:
+                <select style="margin: 0" id="robot">
+                    {% for robot in robots %}
+                        <option value="{{ robot['id'] }}">{{ robot['name'] }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label style="width: 150px">слой:
+                <select style="margin: 0" id="layer">
+
+                    {% for i in range(10) %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label style="width: 150px">слой:
+                <select style="margin: 0; width: 100px" id="status">
+
+                    {% for status in statuses %}
+                        <option value="{{ status }}">{{ status }}</option>
+                    {% endfor %}
+
+                </select>
+            </label>
+            <label style="width: 150px">слот:
+                <select style="margin: 0" id="part_slot">
+
+                    {% for i in range(5) %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+
+                </select>
+            </label>
+        </div>
+
+        <h2 id="status_label">Загрузка...</h2>
+
+        <div class="image">
+            <img id="image" class="visual_image">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='scripts/layer/scripts.js') }}"></script>
+{% endblock %}

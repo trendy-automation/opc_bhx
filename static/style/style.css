@@ -1,0 +1,267 @@
+
+.btn_div {
+    padding-top: 20px;
+    padding-left: 20px;
+    border: 1px solid black; /* размер и цвет границы блока */
+}
+
+#links {
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+
+li {
+    margin-top: 15px;
+}
+
+#logs {
+    margin-left: 5px;
+    padding-left: 5px;
+    height: 100%; /* высота нашего блока */
+    width: 100%; /* ширина нашего блока */
+    background: #fff; /* цвет фона, белый */
+    border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+    overflow-x: scroll; /* прокрутка по горизонтали */
+    overflow-y: scroll; /* прокрутка по вертикали */
+}
+
+
+.table_dark {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    text-align: left;
+    margin: 10px;
+    width: 100%;
+    cellspacing: 0;
+    cellpadding: 4;
+    border: 1px;
+}
+
+.table_dark th {
+    color: #EDB749;
+    border: 1px solid #37B5A5;
+    padding: 12px 17px;
+    text-align: left;
+}
+
+.table_dark td {
+    border: 1px solid #37B5A5;
+    padding: 7px 17px;
+}
+
+.table_dark tr:hover td {
+    text-decoration: underline;
+}
+
+
+.button8 {
+    background: rgba(0, 0, 255, .2);
+    font-weight: 500;
+    text-decoration: none;
+    user-select: none;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    height: 30px;
+}
+
+.button8:hover {
+    background: rgba(0, 255, 255, .4);
+}
+
+.button8:active {
+    background: rgba(0, 0, 0, .9);
+}
+
+
+.last {
+    text-align: right;
+}
+
+#create_details table td {
+    vertical-align: top;
+}
+
+.caption {
+    caption-side: top;
+}
+
+#status {
+    width: 100%;
+    border: 1px solid black;
+}
+
+body {
+    border: 5px solid black;
+}
+
+#create_details {
+    width: 90%;
+}
+
+#filter {
+    margin-top: 5vh;
+    margin-left: 5vh;
+}
+
+select {
+    margin-left: 3vh;
+}
+
+
+.table_dark2 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    text-align: left;
+    margin: 10px;
+    cellspacing: 0;
+    cellpadding: 4;
+    border: 1px;
+}
+
+.table_dark2 th {
+    color: #EDB749;
+    border: 1px solid #37B5A5;
+    padding: 6px 7px;
+    text-align: left;
+}
+
+.table_dark2 td {
+    border: 1px solid #37B5A5;
+    padding: 4px 8px;
+}
+
+.table_dark2 tr:hover td {
+    text-decoration: underline;
+}
+
+
+.accordion {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    font-size: 14px;
+    border: 1px solid #542437;
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px;
+}
+
+.accordion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.accordion li {
+    margin: 0;
+    padding: 0;
+}
+
+.accordion [type=radio], .accordion [type=checkbox] {
+    display: none;
+}
+
+.accordion label {
+    display: block;
+    font-size: 16px;
+    line-height: 16px;
+    background: #D95B43;
+    border: 1px solid #542437;
+    color: #542437;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
+    background: #C02942;
+    color: #FFF;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5)
+}
+
+.accordion .content {
+    padding: 0 10px;
+    overflow: hidden;
+    border: 1px solid #fff;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+}
+
+.accordion p {
+    color: black;
+    margin: 0 0 10px;
+}
+
+.accordion h3 {
+    color: white;
+    padding: 0;
+    margin: 10px 0;
+}
+
+
+.vertical ul li {
+    overflow: hidden;
+    margin: 0 0 1px;
+}
+
+.vertical ul li label {
+    padding: 10px;
+}
+
+.vertical [type=radio]:checked ~ label, .vertical [type=checkbox]:checked ~ label {
+    border-bottom: 0;
+}
+
+.vertical ul li label:hover {
+    border: 1px solid #542437;
+}
+
+.vertical ul li .content {
+    height: 0px;
+    border-top: 0;
+    transition: all .5s ease-out;
+}
+
+.vertical [type=checkbox]:checked ~ label ~ .content {
+    height: 100%;
+    border: 1px solid #542437;
+}
+
+hr {
+    color: white;
+}
+
+.left_block {
+    float: left;
+    display: block;
+}
+
+.tech_tbl {
+    clear: both;
+}
+
+.bord {
+    border: 2px solid #D95B43;
+}
+
+.color_cells {
+    background-color: white;
+    color: black;
+}
+
+.display_true {
+    display: block !important;
+}
+
+.visual_image {
+    width: 136vh;
+    margin-top: -150px;
+    margin-bottom: -80px;
+    overflow: hidden;
+}
+
+.image {
+    overflow: hidden;
+}

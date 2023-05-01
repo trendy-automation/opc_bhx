@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+</br>
+
+<a href="/" id="back">НАЗАД</a>
+</br>
+</br>
+
+<div id="header">
+    <h1>Детали</h1>
+</div>
+
+<div>
+<p id="message"></p>
+<p id="update_time"></p>
+</div>
+
+<form action="" id="filter">
+
+    <select size="3" multiple name="number">
+        <option disabled value="">Выберите номер</option>
+        {% for num in number %}
+            <option value="{{num}}">{{num}}</option>
+        {% endfor %}
+    </select>
+
+    <select size="3" multiple name="status">
+        <option disabled value="">Выберите состояние</option>
+        {% for stat in statuses %}
+            <option value="{{stat}}">{{stat}}</option>
+        {% endfor %}
+    </select>
+
+    <button type="button" id="filter_get" onclick="get_data()">CHECK</button>
+
+</form>
+
+<div>
+    <table class="table_dark2" id="parts_table"></table>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='scripts/part/scripts.js') }}"></script>
+{% endblock %}

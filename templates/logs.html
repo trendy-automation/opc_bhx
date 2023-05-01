@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+</br>
+</br>
+</br>
+<a href="/" id="back">НАЗАД</a>
+
+<div id="header">
+    <h1>Логи</h1>
+</div>
+
+<button type="button" class="btn btn-danger" onclick="clear_logs()">Очистить логи</button>
+<hr>
+<br>
+<div id="logs">
+    {% for line in logs %}
+    <p>{{line}}</p>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='scripts/logs/scripts.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="links">
+
+    <ul>
+        <li><a href="/logs" id="logger"><b>ЛОГИ</b></a></li>
+        <li><a href="/tags" id="tags"><b>ТЕГИ</b></a></li>
+        <li><a href="/details" id="details"><b>ДОБАВИТЬ ДЕТАЛЬ</b></a></li>
+        <li><a href="/parts" id="parts"><b>ДЕТАЛИ</b></a></li>
+        <li><a href="/last_parts" id="last_parts"><b>ПОСЛЕДНИЕ ДЕТАЛИ</b></a></li>
+        <li><a href="/tasks" id="tasks"><b>ЗАДАНИЯ</b></a></li>
+        <li><a href="/layer" id="layer"><b>СЛОИ ДЕТАЛЕЙ</b></a></li>
+        <li><a href="/current_lay" id="current_lay"><b>ТЕКУЩИЙ СЛОЙ</b></a></li>
+    </ul>
+
+</div>
+
+
+<div id="buttons">
+
+    {% for plc, pause in plcs.items() %}
+    <div class="btn_div">
+        <h2>{{plc}}</h2>
+        <button type="button" class="btn btn-danger push_start" data-plc="{{plc}}">Начать работу</button>
+        <button type="button" class="btn btn-danger push_reset" data-plc="{{plc}}">Сбросить задание</button>
+        <button type="button" class="btn btn-danger robot_alarm_reset" data-plc="{{plc}}">Сбросить ошибку</button>
+
+
+        <div class="form-check form-switch">
+            <label class="form-check-label" for="flexSwitchCheckDefault_{{plc}}">Пауза</label>
+            <input {% if pause==True %}
+                        checked
+                   {% endif %}
+                   class="form-check-input robot_pause" type="checkbox" id="flexSwitchCheckDefault_{{plc}}" data-plc="{{plc}}">
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='scripts/main/scripts.js') }}"></script>
+{% endblock %}
+

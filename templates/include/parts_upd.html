@@ -1,0 +1,26 @@
+<tr>
+    {% for name in col_names %}
+        <th>{{ name }}</th>
+    {% endfor %}
+</tr>
+{% for dict in data %}
+    <tr>
+        {% for key in dict %}
+            {% if key == 'Состояние детали' %}
+                <td>
+                    <select onchange="changeSelect(this)">
+                        {% for alias in translate %}
+                            {% if dict[key] == alias %}
+                                <option selected id="{{ dict['ID детали'] }}" value="{{ translate[alias] }}" label="{{ alias }}"></option>
+                            {% else %}
+                                <option id="{{ dict['ID детали'] }}" value="{{ translate[alias] }}" label="{{ alias }}"></option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+            {% else %}
+                <td>{{ dict[key] }}</td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+{% endfor %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+</br>
+
+<a href="/" id="back">НАЗАД</a>
+</br>
+</br>
+
+<div id="header">
+    <h1>Задания</h1>
+</div>
+<div>
+<p id="message"></p>
+<p id="update_time"></p>
+</div>
+
+<div>
+    <table class="table_dark2" id="tasks_table">
+		<tr>
+			{% for name in col_names %}
+			<th>{{name}}</th>
+			{% endfor %}
+		</tr>
+		{% for dict in data %}
+		<tr>
+			{% for key in dict %}
+                {% if key == "task_status" %}
+                    <td>
+                        <select onchange="changeSelect(this)">
+                            {% for option in options %}
+                                {% if dict[key] == option %}
+                                    <option selected label="{{ option }}" value="{{ dict["id"] }}"></option>
+                                {% else %}
+                                    <option label="{{ option }}" value="{{ dict["id"] }}"></option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+                {% else %}
+			    <td>{{dict[key]}}</td>
+                {% endif %}
+			{% endfor %}
+		</tr>
+		{% endfor %}
+    </table>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='scripts/tasks/scripts.js') }}"></script>
+{% endblock %}

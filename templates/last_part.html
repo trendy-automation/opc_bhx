@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+</br>
+
+<a href="/" id="back">НАЗАД</a>
+</br>
+</br>
+
+<div id="header">
+    <h1>Последние детали</h1>
+</div>
+<div>
+<p id="message"></p>
+<p id="update_time"></p>
+</div>
+
+<div>
+    <table class="table_dark2" id="parts_table">
+		<tr>
+			{% for name in col_names %}
+			<th>{{name}}</th>
+			{% endfor %}
+		</tr>
+		{% for dict in data %}
+		<tr>
+			{% for key in dict %}
+                {% if key == "Статус детали" %}
+                    <td>
+                        <select id="{{ dict["ID детали"] }}" onchange="changeSelect(this)">
+                            {% for status in statuses %}
+                                {% if dict[key] == status %}
+                                    <option selected label="{{ status }}"  value="{{ statuses[status] }}"></option>
+                                {% else %}
+                                    <option label="{{ status }}" value="{{ statuses[status] }}"></option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+                {% else %}
+			    <td>{{dict[key]}}</td>
+                {% endif %}
+			{% endfor %}
+		</tr>
+		{% endfor %}
+    </table>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='scripts/last_parts/scripts.js') }}"></script>
+{% endblock %}

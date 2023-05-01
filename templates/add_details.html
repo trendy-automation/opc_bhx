@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block content %}
+</br>
+</br>
+</br>
+<a href="/" id="back">НАЗАД</a>
+
+<div id="create_details">
+
+
+    <table>
+        <tr>
+            <td>
+
+                <form action="" id="main_info">
+                    <table class="table_dark">
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Значение</th>
+                        </tr>
+                        <tr>
+                            <td>Заказ (order_id)</td>
+                            <td><input name="order_id" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Внешний ключ (external_id)</td>
+                            <td><input name="external_id" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Поворот этикетки (label_pos_a)</td>
+                            <td><input name="label_pos_A" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Положение этикетки X (label_pos_x)</td>
+                            <td><input name="label_pos_x" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Положение этикетки Y (label_pos_y)</td>
+                            <td><input name="label_pos_y" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Номер детали (part_number)</td>
+                            <td><input name="part_number" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Статус детали (part_status)</td>
+                            <td><input name="part_status" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Поворот детали (part_angle_a)</td>
+                            <td><input name="part_angle_a" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Длина по X (part_length_x)</td>
+                            <td><input name="part_length_x" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Длина по Y (part_length_y)</td>
+                            <td><input name="part_length_y" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Толщина (part_thickness_z)</td>
+                            <td><input name="part_thickness_z" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Угол поворота этикетки (label_angle_a)</td>
+                            <td><input name="label_angle_a" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Позиция детали X (part_pos_x)</td>
+                            <td><input name="part_pos_x" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Позиция детали Y (part_pos_y)</td>
+                            <td><input name="part_pos_y" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Позиция детали Z (part_pos_z)</td>
+                            <td><input name="part_pos_z" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Угол поворота детали (part_angle_a)</td>
+                            <td><input name="part_angle_a" type="text"></td>
+                        </tr>
+                    </table>
+                </form>
+
+            </td>
+
+
+            <td>
+                <form action="" id="task_list">
+                    <table class="table_dark" id="task_table">
+                        <caption class="caption"><h2><b>Задания (robot_tasks)</b></h2></caption>
+                        <tr>
+                            <th>Статус задания (task_status)</th>
+                            <th>Сторона (operation_side)</th>
+                            <th>Тип операционной (milling)</th>
+                            <th>Номер операции (operation_number)</th>
+                            <th>Содержание операции (operation_content)</th>
+                            <th>Обрабатывающая программа (program_fullpath)</th>
+                            <th>
+                                <button onclick="newtask()" id="new_task" type="button"><h1><b>"+"</b></h1></button>
+                            </th>
+                        </tr>
+                        <tr id="detail_task">
+                            <td><input type="text" name="task_status"></td>
+                            <td><input type="text" name="operation_side"></td>
+                            <td><input type="text" name="milling"></td>
+                            <td><input type="text" name="operation_number"></td>
+                            <td><input type="text" name="operation_content"></td>
+                            <td><input type="text" name="program_fullpath"></td>
+                            <td>
+                                <button onclick="deltask()" id="del_task" type="button"><h1><b>"-"</b></h1></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class=".last" colspan="7">
+                                <div id="current_tasks">
+                                    <h2>Текущие Задания:</h2>
+                                    <div id="cur_task">
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+
+            </td>
+
+        </tr>
+
+        <tr>
+            <td class="last">
+                <button type="button" onclick="addDetail()"><h2><b>Отправить</b></h2></button>
+            </td>
+        </tr>
+
+    </table>
+
+
+</div>
+
+<div id="status">
+    <h1><b>Результат: </b></h1>
+    <h2>...</h2>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='scripts/details/scripts.js') }}"></script>
+{% endblock %}

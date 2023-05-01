@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+</br>
+
+<a href="/" id="back">НАЗАД</a>
+</br>
+</br>
+<div id="header">
+    <h1>Теги</h1>
+</div>
+
+<div>
+    <div class="accordion vertical">
+        <ul id="reload">
+            {% for plc_name, tags in tags_.items() %}
+
+
+            <li>
+                <input type="checkbox" id="checkbox-{{plc_name}}" name="checkbox-accordion"/>
+                <label for="checkbox-{{plc_name}}" id="{{plc_name}}_name">{{plc_name}}</label>
+                <div class="content">
+                    <hr>
+
+
+                    <table class="table_dark" id="tags">
+                        <tr>
+                            <th>Имя</th>
+                            <th>Тип</th>
+                            <th>Дата Блок</th>
+                            <th>Бит</th>
+                            <th>Байт</th>
+                            <th>Значение</th>
+                            <th>Только чтение</th>
+                            <th>Ввод</th>
+                            <th>Отправить</th>
+                        </tr>
+                        {% for tag, items in tags[1].items() %}
+                        <tr id="{{tag}}">
+                            <td>{{tag}}</td>
+                            <td>{{items.type}}</td>
+                            <td>{{items.db_number}}</td>
+                            <td>{{items.offsetbyte}}</td>
+                            <td>{{items.offsetbit}}</td>
+                            <td id="{{plc_name}}_{{1}}_{{tag.replace('/', '_')}}">
+                                {% if "String" in items.type %}
+                                "{{items.tag_value}}"
+                                {% else %}
+                                {{items.tag_value}}
+                                {% endif %}
+                            </td>
+                            <td>{{items.read_only}}</td>
+                            <td data-content="input">
+                                {% if items.read_only %}
+                                <p><b>Недоступно</b></p>
+                                {% else %}
+                                {% if items.type == "Bool" -%}
+                                <input type="checkbox" id="{{tag}}NewVal" class="display_true">
+                                {% elif "String" in items.type or "Char" in items.type or "Array" in
+                                items.type %}
+                                <input type="text" id="{{tag}}NewVal">
+                                {% elif "Int" in items.type or "Real" in items.type %}
+                                <input type="number" id="{{tag}}NewVal">
+                                {% else %}
+                                None
+                                {% endif %}
+                                {% endif %}
+                            </td>
+                            <td data-content="button">
+                                {% if items.read_only %}
+                                <p><b>Недоступно</b></p>
+                                {% else %}
+                                <button type="button"
+                                        onclick="getData('{{tag.replace('/','\\\/')}}', '{{plc_name}}')"
+                                        class="button8">Записать
+                                </button>
+                                {% endif %}
+                        </tr>
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='scripts/tags/scripts.js') }}"></script>
+{% endblock %}

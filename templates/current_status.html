@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>ТЕКУЩИЙ СТАТУС</h1>
+    <a href="/" id="back">НАЗАД</a>
+
+    <div class="status_page"
+    style="display: flex;
+    flex-direction: column;
+    align-items: center;">
+
+        <h2 id="status_label">Загрузка...</h2>
+
+        <div class="image">
+            <img id="image">
+
+        </div>
+
+        <div class="info">
+            <table class="table_dark2">
+                <thead>
+                <tr>
+                    <td>
+                        robot_id
+                    </td>
+                    <td>
+                        lay_number
+                    </td>
+                    <td>
+                        part_status
+                    </td>
+                    <td>
+                        pallet_length_x
+                    </td>
+                    <td>
+                        pallet_length_y
+                    </td>
+                </tr>
+                </thead>
+                <tr>
+                    <td id="robot_id"></td>
+                    <td id="lay_number"></td>
+                    <td id="part_status"></td>
+                    <td id="pallet_length_x"></td>
+                    <td id="pallet_length_y"></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='scripts/current_status/scripts.js') }}"></script>
+{% endblock %}
