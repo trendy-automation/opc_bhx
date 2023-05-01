@@ -14,8 +14,8 @@ class Telegram_SQL_Error(threading.Thread):
     def __init__(self):
         try:
             threading.Thread.__init__(self, args=(), name='telebot', kwargs=None)
-            self.bot_token = '1780449935:AAFH06IlU3VKFDmxD5Wcvus-guTyii_O0Ms'
-            self.bot_chatID = '-505226603'
+            self.bot_token = ''
+            self.bot_chatID = ''
             # self.logger = logging.getLogger("opc_py")
             self.logger = logger
             # self.logger.setLevel(logging.ERROR)
